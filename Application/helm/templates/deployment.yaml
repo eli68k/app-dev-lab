@@ -2,8 +2,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
 # set your lab user name
-  name: apiVersion: v2
-name: {{ .Release.Name }}
+  name: {{ .Release.Name }}
 spec:
   replicas: {{ .Values.ReplicaNumber }}
   selector:
