@@ -2,30 +2,29 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
 # set your lab user name
-  name: apiVersion: v2
-name: {{ .Release.Name }}
+  name: eli68k-hello-world
 spec:
-  replicas: {{ .Values.ReplicaNumber }}
+  replicas: 3
   selector:
     matchLabels:
 # set your lab user name
-      app: {{ .Release.Name }}
+      app: eli68k-hello-world
   template:
     metadata:
       labels:
 # set your lab user name
-        app: {{ .Release.Name }}
+        app: eli68k-hello-world
     spec:
       containers:
         - resources: {}
           terminationMessagePath: /dev/termination-log
-          name: {{ .Release.Name }}
+          name: hello-world
           ports:
-            - containerPort: {{ .Values.containers.containerPort }}
+            - containerPort: 8080
               protocol: TCP
           imagePullPolicy: IfNotPresent
 # update with the image you build in part 1
-          image: {{ .Values.containers.image }}:{{ .Values.containers.tag }}
+          image: 'quay.io/eli68k/app-dev-lab:v2'
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
   strategy:
