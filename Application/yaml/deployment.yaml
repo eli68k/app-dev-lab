@@ -2,7 +2,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
 # set your lab user name
-  name: <userName>-hello-world
+  name: eli68k-hello-world
 spec:
   replicas: 3
   selector:
@@ -24,7 +24,7 @@ spec:
               protocol: TCP
           imagePullPolicy: IfNotPresent
 # update with the image you build in part 1
-          image: 'quay.io/eli68k/app-dev-lab:<Tag>'
+          image: 'quay.io/eli68k/app-dev-lab:v1'
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
   strategy:
