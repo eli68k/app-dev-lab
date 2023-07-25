@@ -38,9 +38,9 @@ spec:
           failureThreshold: 3 # count to decalre failure        
           livenessProbe:
               httpGet:
-              path: /health/liveliness
-              port: {{ .Values.containers.containerPort }}
-              scheme: HTTP
+                path: /health/liveliness
+                port: {{ .Values.containers.containerPort }}
+                scheme: HTTP
               initialDelaySeconds: 1
               timeoutSeconds: 1
               periodSeconds: 10
