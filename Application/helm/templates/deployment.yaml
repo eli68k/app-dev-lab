@@ -21,10 +21,7 @@ spec:
             name: index.html
             defaultMode: 420
       containers:
-          volumeMounts:
-          - name: index-html
-            mountPath: /tmp/html # this will mount the html.index file to it application location
-          - resources: {}
+        - resources: {}
           terminationMessagePath: /dev/termination-log
           name: {{ .Release.Name }}
           ports:
@@ -33,6 +30,9 @@ spec:
           imagePullPolicy: IfNotPresent
 # update with the image you build in part 1
           image: {{ .Values.containers.image }}:{{ .Values.containers.tag }}
+          volumeMounts:
+          - name: index-html
+            mountPath: /tmp/html # this will mount the html.index file to it application location          
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
   strategy:
