@@ -54,8 +54,8 @@ spec:
           - name: index-html
             mountPath: /tmp/html # this will mount the html.index file to it application location   
             env:
-                      - name: PORT
-                        value: {{ .Values.containers.containerPort | quote }}
+              - name: PORT
+                value: {{ .Values.containers.containerPort | quote }}
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
   strategy:
